@@ -35,7 +35,7 @@ def lanzous():
         print('startTime:', startTime)
         text_main = requests.get(lanzousUrl, headers=headers, timeout=3).text  # 发送请求，获取fn页面
         endTime = time.time()
-        print('startTime:', endTime, 'use:', endTime - startTime)
+        print('endTime:', endTime, 'use:', endTime - startTime)
         try:
             fn = re.findall('<iframe.* src="(.*?)".*</iframe>', text_main)[1]  # 提取fn页面path
         except:
@@ -50,7 +50,7 @@ def lanzous():
         print('startTime:', startTime)
         text_fn = requests.get(url_fn, headers=headers, timeout=3).text  # 请求fn页面内容
         endTime = time.time()
-        print('startTime:', endTime, 'use:', endTime - startTime)
+        print('endTime:', endTime, 'use:', endTime - startTime)
         ajaxdata = re.findall('''var ajaxdata = '(.*)';''', text_fn)[0]  # 提取里面的ajaxdata
         postData = re.findall('data : (.*),', text_fn)[1]  # 提取发送的数据
         postData = eval(postData)  # 变为字典数据，用eval是为了里面的变量ajaxdata可以获取的变量，该方法不安全
@@ -60,7 +60,7 @@ def lanzous():
         print('startTime:', startTime)
         text_ajaxm = requests.post('https://lanzous.com/ajaxm.php', data=postData, headers=headers,timeout=3).text  # post发送数据
         endTime = time.time()
-        print('startTime:', endTime, 'use:', endTime - startTime)
+        print('endTime:', endTime, 'use:', endTime - startTime)
         json_ajaxm = json.loads(text_ajaxm)  # 转成字典类型
         fileZT = json_ajaxm['zt']  # 状态，1为可以下载
         fileDomain = json_ajaxm['dom']  # domain
@@ -80,7 +80,7 @@ def lanzous():
         print('startTime:', startTime)
         fileURI = requests.get(fileURI_redirect, headers=headers, allow_redirects=False).headers['Location']  # 获取经过重定向后的url
         endTime = time.time()
-        print('startTime:', endTime, 'use:', endTime - startTime)
+        print('endTime:', endTime, 'use:', endTime - startTime)
         response = {
             'code': 200,
             'message': fileURI
