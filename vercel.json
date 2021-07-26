@@ -3,7 +3,7 @@
     {
       "source": "/api/bing-img",
       "headers": [
-        {"key": "Access-Control-Allow-Origin", "value": "https://s.shojo.cn"}
+        {"key": "Access-Control-Allow-Origin", "value": "*"}
       ]
     },
     {
