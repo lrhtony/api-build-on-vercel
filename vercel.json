@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "/api/bing-img",
+      "source": "/api/sou/(.*)",
       "headers": [
         {"key": "Access-Control-Allow-Origin", "value": "*"}
       ]
