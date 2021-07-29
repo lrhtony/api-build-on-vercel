@@ -1,2 +1,5 @@
 requests==2.25.1
 Flask==1.1.4
+python-geoip
+python-geoip-geolite2
+python-geoip-python3
